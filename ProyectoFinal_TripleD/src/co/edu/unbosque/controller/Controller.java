@@ -1,63 +1,47 @@
 package co.edu.unbosque.controller;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import co.edu.unbosque.model.UsuariosDTO;
+import co.edu.unbosque.model.persistence.ModelFacade;
+import co.edu.unbosque.view.LoginView;
+import co.edu.unbosque.view.RegistroView;
 
-/**
- * La clase Controller es el controlador principal del programa. Crea el objeto
- * pokemonDAO que pertenece al DAO de pokemon.
- */
-public class Controller {
-	// private PokemonDAO pokemonDAO;
-
-	/**
-	 * Constructor de la clase , inicializa el objeto pokemonDAO
-	 */
-	public Controller() {
-		// pokemonDAO = new PokemonDAO();
+public class Controller implements ActionListener{
+	private LoginView lgv;
+	private RegistroView rv;
+	private ModelFacade mf;
+	
+	
+	public Controller() {	
+		lgv = new LoginView();	
+		rv = new RegistroView();
+		mf = new ModelFacade();
+		oyentes();
+	}
+	
+	public void run() {
+		lgv.setVisible(true);
+	}
+	public void oyentes() {
+		rv.btnCrearUsuario.addActionListener(this);
+		rv.btnCrearUsuario.setActionCommand("CrearUsuario");
 	}
 
-	/**
-	 * Este metodo crea un pokemon y retorna un mensaje.
-	 * 
-	 * @param pokemon Objeto del pokemon a crear.
-	 * 
-	 * @return pokemon creado con exito.
-	 */
-	public String crearPokemon(Object pokemon) {
-		// pokemonDAO.create(pokemon);
-		return "Pokemon Creado Con Exito";
-//	}
-
-		/**
-		 * Este metodo elimina un pokemon mediante el id y retorna un mensaje si este es
-		 * eliminado correctamente, y otro si no se pudo eliminar.
-		 * 
-		 * @param id el id del pokemon.
-		 * 
-		 * @return Pokemon eliminado con exito
-		 * 
-		 * @return Algo salio mal.
-		 */
-		// public String eliminarPokemon(int id) {
-		// if (pokemonDAO.delete(id)) {
-		// return "Pokemon Eliminado con exito";
-		// }
-		// return "Algo Salio mal";
-		// }
-
-		/**
-		 * Este metodo actualiza un pokemon mediante el id y el objeto de este, y
-		 * retorna un mensaje para cada caso.
-		 * 
-		 * @param id      el id del pokemon.
-		 * @param pokemon el objeto el cual es el pokemon.
-		 * 
-		 * @return Pokemon actualizado con exito
-		 * @return Algo salio mal.
-		 */
-		// public String actualizarPokemon(int id, Object pokemon) {
-		// if (pokemonDAO.update(id, pokemon)) {
-		// return "Pokemon Actualizado con Exito";
-		// }
-		// return "Algo salio Mal";
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getActionCommand().equals("CrearUsuario")) {
+			String usuario = rv.txtUsuario.getText();
+			String clave = rv.txtClave.getText();
+			String tipoUsuario = (String) rv.listTipoDeUsuario.getSelectedValue();
+			mf.getuDAO().create(new UsuariosDTO(usuario, clave, tipoUsuario));
+			rv.txtUsuario.setText("");
+			rv.txtClave.setText("");
+			rv.listTipoDeUsuario.setSelectedIndex(-1);
+			System.out.println("Usuario Creado Con Exito");
+			JOptionPane.showMessageDialog(null, "Usuario Creado Con Exito");
+			lgv.setVisible(true);
+			rv.dispose();
+		}
 	}
-
 }

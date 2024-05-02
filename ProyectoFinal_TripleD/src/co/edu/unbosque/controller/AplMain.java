@@ -13,7 +13,8 @@ public class AplMain {
 	 * args son los argumentos de la linea de comando.
 	 */
 	public static void main(String[] args) {
-
+		Controller con = new Controller();
+		con.run();
 	}
 
 }

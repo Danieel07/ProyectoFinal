@@ -49,7 +49,7 @@ public class CiclistaDAO implements CRUDOperation {
 			contenido += lista.get(i).getIdentificador() + ";";
 			contenido += lista.get(i).getNacionalidad() + ";";
 			contenido += lista.get(i).getTiempoAcumulado() + ";";
-			contenido += lista.get(i).getTipoCiclista() + ";";
+			contenido += lista.get(i).getTipoCiclista();
 
 			if (i < lista.size() - 1) {
 				contenido += "\n";
