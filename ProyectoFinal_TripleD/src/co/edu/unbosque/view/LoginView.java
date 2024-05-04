@@ -20,13 +20,14 @@ public class LoginView extends JFrame {
 	private JLabel lblClave;
 	public JTextField txtUsuario;
 	public JTextField txtClave;
-	public JLabel lblRegistro;
 	public JButton btnInicioSesion;
+	public JButton btnRegistro;
 
 	public LoginView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(450, 200, 453, 347);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -38,6 +39,7 @@ public class LoginView extends JFrame {
 		contentPane.add(lblTitulo);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(106, 58, 227, 195);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -62,24 +64,15 @@ public class LoginView extends JFrame {
 			
 			txtClave = new JTextField();
 			txtClave.setBounds(13, 114, 200, 25);
-			panel.add(txtClave);
+			panel.add(txtClave); 
 			
-			lblRegistro = new JLabel("Registrarse");
-			lblRegistro.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					RegistroView rv = new RegistroView();
-					rv.setVisible(true);
-					dispose();
-				}
-			});
-			
-			lblRegistro.setFont(new Font("Tahoma", Font.PLAIN, 10));
-			lblRegistro.setHorizontalAlignment(SwingConstants.CENTER);
-			lblRegistro.setBounds(63, 150, 100, 15);
-			lblRegistro.setForeground(new Color(255, 0, 0));
-			
-			panel.add(lblRegistro);
+			btnRegistro = new JButton("Registrarse");
+			btnRegistro.setBackground(new Color(255, 255, 255));
+			btnRegistro.setBorderPainted(false);
+			btnRegistro.setBorder(null);
+			btnRegistro.setForeground(new Color(128, 0, 0));
+			btnRegistro.setBounds(74, 150, 89, 23);
+			panel.add(btnRegistro);
 			
 			btnInicioSesion = new JButton("Inicar Sesión");
 			btnInicioSesion.setForeground(new Color(0, 128, 255));

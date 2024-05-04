@@ -27,6 +27,7 @@ public class RegistroView extends JFrame {
 	private JPanel panel;
 	private JLabel lblTitulo;
 	public JButton btnCrearUsuario;
+	public JTextField txtCorreo;
 	
 	@SuppressWarnings({ "rawtypes", "serial", "unchecked" })
 	public RegistroView() {
@@ -54,7 +55,7 @@ public class RegistroView extends JFrame {
 		
 		lblClave = new JLabel("Clave:");
 		lblClave.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblClave.setBounds(10, 64, 104, 14);
+		lblClave.setBounds(10, 122, 104, 14);
 		panel.add(lblClave);
 		
 		lblUsuario_2 = new JLabel("Tipo de Usuario:");
@@ -68,7 +69,7 @@ public class RegistroView extends JFrame {
 		txtUsuario.setColumns(10);
 		
 		txtClave = new JTextField();
-		txtClave.setBounds(10, 89, 185, 20);
+		txtClave.setBounds(10, 147, 185, 20);
 		panel.add(txtClave);
 		txtClave.setColumns(10);
 		
@@ -89,5 +90,15 @@ public class RegistroView extends JFrame {
 		btnCrearUsuario = new JButton("Crear Usuario");
 		btnCrearUsuario.setBounds(199, 144, 161, 23);
 		panel.add(btnCrearUsuario);
+		
+		JLabel lblCorreo = new JLabel("Correo:");
+		lblCorreo.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblCorreo.setBounds(10, 64, 104, 14);
+		panel.add(lblCorreo);
+		
+		txtCorreo = new JTextField();
+		txtCorreo.setColumns(10);
+		txtCorreo.setBounds(10, 89, 185, 20);
+		panel.add(txtCorreo);
 	}
 }

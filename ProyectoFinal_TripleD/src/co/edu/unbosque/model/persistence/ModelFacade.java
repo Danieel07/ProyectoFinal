@@ -5,14 +5,14 @@ public class ModelFacade {
 	private CiclistaDAO cDAO;
 	private EquipoDAO eDAO;
 	private MasajistaDAO mDAO;
-	private UsuariosDAO uDAO;
+	private UsuarioDAO uDAO;
 	
 	public ModelFacade() {
 		ddDAO = new DirectorDeportivoDAO();
 		cDAO = new CiclistaDAO();
 		eDAO = new EquipoDAO();
 		mDAO = new MasajistaDAO();
-		uDAO = new UsuariosDAO();
+		uDAO = new UsuarioDAO();
 	}
 	public DirectorDeportivoDAO getDdDAO() {
 		return ddDAO;
@@ -26,7 +26,7 @@ public class ModelFacade {
 	public MasajistaDAO getmDAO() {
 		return mDAO;
 	}
-	public UsuariosDAO getuDAO() {
+	public UsuarioDAO getuDAO() {
 		return uDAO;
 	}
 	

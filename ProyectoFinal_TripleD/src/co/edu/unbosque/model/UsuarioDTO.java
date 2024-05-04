@@ -1,17 +1,29 @@
 package co.edu.unbosque.model;
 
-public class UsuariosDTO {
+import java.io.Serializable;
+
+public class UsuarioDTO implements Serializable{
+
+	
+	private static final long serialVersionUID = -5613244232298423060L;
+	
+	
+	private int id = 0;
 	private String usuario;
 	private String clave;
 	private String tipoDeUsuario;
+	private String correo;
 	
-	public UsuariosDTO() {
+	
+	public UsuarioDTO() {
 	}
 	
-	public UsuariosDTO(String usuario, String clave, String tipoDeUsuario) {
+	public UsuarioDTO(String usuario, String clave, String tipoDeUsuario, String correo, int id) {
 		this.usuario = usuario;
 		this.clave = clave;
 		this.tipoDeUsuario = tipoDeUsuario;
+		this.correo = correo;
+		this.id = id;
 	}
 
 	public String getUsuario() {
@@ -37,5 +49,20 @@ public class UsuariosDTO {
 	public void setTipoDeUsuario(String tipoDeUsuario) {
 		this.tipoDeUsuario = tipoDeUsuario;
 	}
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	
 }
