@@ -21,7 +21,7 @@ public class DirectorDeportivoDTO extends PersonaDTO implements Serializable {
 	}
 
 	/**
-	 * Contructor heredado con solo lso atributos de la superClase.
+	 * Contructor heredado con solo los atributos de la superClase.
 	 * 
 	 * @param nombre
 	 * @param identificador

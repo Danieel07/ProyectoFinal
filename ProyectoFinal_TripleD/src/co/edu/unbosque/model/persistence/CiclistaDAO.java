@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import co.edu.unbosque.model.CiclistaDTO;
 
 /**
- * CiclistaDAO Se realiza las operaciones basicas con un ciclista.
+ * CiclistaDAO Se realizan las operaciones basicas con un ciclista.
  */
 public class CiclistaDAO implements CRUDOperation {
 	private ArrayList<CiclistaDTO> lista;
@@ -154,7 +154,7 @@ public class CiclistaDAO implements CRUDOperation {
 
 	/**
 	 * Este método devuelve una cadena que contiene una representación de todos los
-	 * pokemones almacenados en el DAO.
+	 * ciclistas almacenados en el DAO.
 	 */
 
 	@Override
@@ -168,7 +168,7 @@ public class CiclistaDAO implements CRUDOperation {
 	}
 
 	/**
-	 * Se obtiene la lista de PokemonDTO
+	 * Se obtiene la lista de CiclistaDTO
 	 * 
 	 * @return lista
 	 */

@@ -85,46 +85,113 @@ public class CiclistaDTO extends PersonaDTO implements Serializable {
 		super(nombre, identificador, aniosExp, nacionalidad);
 		// TODO Auto-generated constructor stub
 	}
+	
+	/**
+	 * Obtiene el tipo de ciclista.
+	 * 
+	 * @return tipoCiclista		el tipo de ciclista.
+	 */
 
 	public String getTipoCiclista() {
 		return tipoCiclista;
 	}
+	
+	/**
+	 * Establece el tipo de ciclista
+	 * 
+	 * @param tipoCiclista el nuevo tipo de ciclista.
+	 */
 
 	public void setTipoCiclista(String tipoCiclista) {
 		this.tipoCiclista = tipoCiclista;
 	}
+	
+	/**
+	 * Obtiene la contextura del ciclista.
+	 * 
+	 * @return contextura	la contextura del ciclista.
+	 */
 
 	public String getContextura() {
 		return contextura;
 	}
+	
+	/**
+	 * Establece la contextura del ciclista
+	 * 
+	 * @param contextura	 la nueva contextura del ciclista.
+	 */
 
 	public void setContextura(String contextura) {
 		this.contextura = contextura;
 	}
+	
+	/**
+	 * Obtiene el tiempo acumulado.
+	 * 
+	 * @return tiempoAcumulado	el tiempo acumulado.
+	 */
 
 	public double getTiempoAcumulado() {
 		return tiempoAcumulado;
 	}
+	
+	/**
+	 * Establece el tiempo acumulado.
+	 * 
+	 * @param tiempoAcumulado	 el nuevo tiempo acumulado.
+	 */
 
 	public void setTiempoAcumulado(double tiempoAcumulado) {
 		this.tiempoAcumulado = tiempoAcumulado;
 	}
+	
+	/**
+	 * Obtiene la especialidad.
+	 * 
+	 * @return especialidad		la especialidad.
+	 */
 
 	public String getEspecialidad() {
 		return especialidad;
 	}
+	
+	/**
+	 * Establece la especialidad.
+	 * 
+	 * @param especialidad	 la nueva especialidad.
+	 */
 
 	public void setEspecialidad(String especialidad) {
 		this.especialidad = especialidad;
 	}
+	
+	/**
+	 * Obtiene la cadencia de pedaleo.
+	 * 
+	 * @return cadenciaPedaleo	la cadencia de pedaleo.
+	 */
 
 	public String getCadenciaPedaleo() {
 		return cadenciaPedaleo;
 	}
+	
+	/**
+	 * Establece la cadencia de pedaleo.
+	 * 
+	 * @param cadenciaPedaleo	 la nueva cadencia de pedaleo.
+	 */
 
 	public void setCadenciaPedaleo(String cadenciaPedaleo) {
 		this.cadenciaPedaleo = cadenciaPedaleo;
 	}
+	
+	/**
+	 * Devuelve una representacion en cadena del tipo de ciclista, la conntextura, tiempo acumulado, especialidad, cadencia de pedaleo,
+	 * nombre, identificador, años de experiencia y nacionalidad.
+	 * 
+	 * @return Una cadena que representa el ciclista.
+	 */
 
 	@Override
 	public String toString() {
