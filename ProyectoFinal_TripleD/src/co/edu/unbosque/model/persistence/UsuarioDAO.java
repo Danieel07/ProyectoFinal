@@ -153,4 +153,8 @@ public class UsuarioDAO implements CRUDOperation {
 		return exit;
 	}
 
+	public ArrayList<UsuarioDTO> getLista(){
+		return lista;
+	}
+
 }

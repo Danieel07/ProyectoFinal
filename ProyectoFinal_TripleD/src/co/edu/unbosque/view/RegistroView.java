@@ -33,6 +33,7 @@ public class RegistroView extends JFrame {
 	private JLabel lblTitulo;
 	public JButton btnCrearUsuario;
 	public JTextField txtCorreo;
+	public JButton btnRegresar;
 
 	/**
 	 * El constructor de la clase RegistroView se encarga de inicializar y mostrar
@@ -112,5 +113,9 @@ public class RegistroView extends JFrame {
 		txtCorreo.setColumns(10);
 		txtCorreo.setBounds(10, 89, 185, 20);
 		panel.add(txtCorreo);
+		
+		btnRegresar = new JButton("Regresar");
+		btnRegresar.setBounds(10, 230, 99, 26);
+		contentPane.add(btnRegresar);
 	}
 }

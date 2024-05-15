@@ -8,7 +8,9 @@ package co.edu.unbosque.view;
 public class ViewFacade {
 	private LoginView loginView;
 	private RegistroView registroView;
+	private PanelPrincipal panelPrincipal;
 
+	
 	/**
 	 * El constructor de la clase ViewFacade contiene la inicializacion de los
 	 * paneles de la vista del aplicativo.
@@ -17,6 +19,7 @@ public class ViewFacade {
 	public ViewFacade() {
 		loginView = new LoginView();
 		registroView = new RegistroView();
+		panelPrincipal =  new PanelPrincipal();
 	}
 
 	/**
@@ -38,4 +41,9 @@ public class ViewFacade {
 	public RegistroView getRegistroView() {
 		return registroView;
 	}
+	
+	public PanelPrincipal getPanelPrincipal() {
+		return panelPrincipal;
+	}
+
 }

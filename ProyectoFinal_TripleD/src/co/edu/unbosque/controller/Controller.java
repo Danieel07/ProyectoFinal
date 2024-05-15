@@ -2,6 +2,7 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -42,6 +43,7 @@ public class Controller implements ActionListener {
 	private String correo;
 	private String clave;
 	private int id = 0;
+	private String tipoDeUsuario;
 
 	/**
 	 * El constructor de la clase Controller inicializa los objetos y asigna oyentes
@@ -71,11 +73,19 @@ public class Controller implements ActionListener {
 		// Login View
 		viewFacade.getLoginView().btnRegistro.addActionListener(this);
 		viewFacade.getLoginView().btnRegistro.setActionCommand("AbrirViewRegistro");
-
+		viewFacade.getLoginView().btnInicioSesion.addActionListener(this);
+		viewFacade.getLoginView().btnInicioSesion.setActionCommand("Login");
+		
 		// Registro View
 		viewFacade.getRegistroView().btnCrearUsuario.addActionListener(this);
 		viewFacade.getRegistroView().btnCrearUsuario.setActionCommand("CrearUsuario");
-
+		viewFacade.getRegistroView().btnRegresar.addActionListener(this);
+		viewFacade.getRegistroView().btnRegresar.setActionCommand("RegresarRegistro");
+		
+		//PanelPrincipal
+		viewFacade.getPanelPrincipal().btnRegresar.addActionListener(this);
+		viewFacade.getPanelPrincipal().btnRegresar.setActionCommand("Regresar");
+		
 	}
 
 	/**
@@ -88,6 +98,7 @@ public class Controller implements ActionListener {
 		System.out.println(actionCommand);
 
 		switch (actionCommand) {
+		
 		case "AbrirViewRegistro": {
 			viewFacade.getLoginView().setVisible(false);
 			viewFacade.getRegistroView().setVisible(true);
@@ -109,6 +120,7 @@ public class Controller implements ActionListener {
 			viewFacade.getRegistroView().txtUsuario.setText("");
 			viewFacade.getRegistroView().txtClave.setText("");
 			viewFacade.getRegistroView().listTipoDeUsuario.setSelectedIndex(-1);
+			viewFacade.getRegistroView().txtCorreo.setText("");
 
 			// Enviar Email
 			createEmail();
@@ -119,6 +131,89 @@ public class Controller implements ActionListener {
 			viewFacade.getLoginView().setVisible(true);
 			viewFacade.getRegistroView().setVisible(false);
 			break;
+		}
+		case "Login":{
+			
+			System.out.println("Login");
+			//Creacion de variables
+			String usuarioLogin = "";
+			String claveLogin = "";
+			
+			// Tomar valores de los campos de texto
+			usuarioLogin =  viewFacade.getLoginView().txtUsuario.getText().toLowerCase();
+			claveLogin = viewFacade.getLoginView().txtClave.getText();
+			
+			//Validar Que los campos no esten vacios
+			if(usuarioLogin.isEmpty() || claveLogin.isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Para Iniciar Sesión antes debe digitar sus credenciales");
+				
+			}else {
+				//Ciclo que Recorre la lista de usuarios
+				for(int i = 0; i < modelFacade.getuDAO().getLista().size(); i++) {
+					// Valida que los Datos ingresados y de la Base Datos sean congruentes
+					if(modelFacade.getuDAO().getLista().get(i).getUsuario().toLowerCase().equals(usuarioLogin) && modelFacade.getuDAO().getLista().get(i).getClave().equals(claveLogin)){						
+	
+						viewFacade.getPanelPrincipal().setVisible(true);
+						
+						//Oculta el Login y Limpia Los campos
+						viewFacade.getLoginView().setVisible(false);
+						viewFacade.getLoginView().txtUsuario.setText("");
+						viewFacade.getLoginView().txtClave.setText("");
+						break;
+					}
+				}
+				
+				//Muestra El Nombre y El rol Del usuario
+				viewFacade.getPanelPrincipal().lblBienvenido.setText("Bienvenido "+ usuarioLogin.toUpperCase());
+				
+				ArrayList<UsuarioDTO> listaUsuarios = modelFacade.getuDAO().getLista();
+				for (UsuarioDTO usuarioDTO : listaUsuarios) {
+					
+					if(usuarioDTO.getUsuario().toUpperCase().equals(usuarioLogin.toUpperCase())) {
+						
+						System.out.println("Entro");
+						tipoDeUsuario = usuarioDTO.getTipoDeUsuario();
+						viewFacade.getPanelPrincipal().lblRol.setText(tipoDeUsuario);
+						
+						switch (tipoDeUsuario){
+						case "Administrador": {
+							
+							break;
+						}case "Director Deportivo":{
+							
+							break;
+						}case "Masajista":{
+							viewFacade.getPanelPrincipal().btnCrearEscuadra.setVisible(false);
+							viewFacade.getPanelPrincipal().btnSimularCarrera.setVisible(false);
+							viewFacade.getPanelPrincipal().btnGenerarReporte.setVisible(false);
+							break;
+						}case "Ciclista":{
+							viewFacade.getPanelPrincipal().btnCrearEscuadra.setVisible(false);
+							viewFacade.getPanelPrincipal().btnSimularCarrera.setVisible(false);
+							viewFacade.getPanelPrincipal().btnGenerarReporte.setBounds(0, 231, 264, 41);
+							break;
+						}
+						default:
+							throw new IllegalArgumentException("Unexpected value: " + tipoDeUsuario);
+						}
+						
+						break;
+					}
+				}
+			}
+			
+			
+			break;
+		}case "Regresar":{
+			viewFacade.getLoginView().setVisible(true);
+			viewFacade.getPanelPrincipal().setVisible(false);
+			break;
+			
+		}case "RegresarRegistro":{
+			viewFacade.getLoginView().setVisible(true);
+			viewFacade.getRegistroView().setVisible(false);
+			break;
+			
 		}
 		default:
 			JOptionPane.showMessageDialog(null, "Algo salio mal");
