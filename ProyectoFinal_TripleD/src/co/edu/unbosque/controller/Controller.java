@@ -8,7 +8,6 @@ import java.util.Properties;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -17,8 +16,6 @@ import javax.swing.JOptionPane;
 import co.edu.unbosque.model.UsuarioDTO;
 import co.edu.unbosque.model.persistence.ModelFacade;
 import co.edu.unbosque.view.DatosPersonalesView;
-import co.edu.unbosque.view.LoginView;
-import co.edu.unbosque.view.RegistroView;
 import co.edu.unbosque.view.ViewFacade;
 
 /**
