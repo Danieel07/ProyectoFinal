@@ -1,5 +1,6 @@
 package co.edu.unbosque.controller;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import co.edu.unbosque.model.UsuarioDTO;
 import co.edu.unbosque.model.persistence.ModelFacade;
+import co.edu.unbosque.view.DatosPersonalesView;
 import co.edu.unbosque.view.LoginView;
 import co.edu.unbosque.view.RegistroView;
 import co.edu.unbosque.view.ViewFacade;
@@ -86,6 +88,8 @@ public class Controller implements ActionListener {
 		viewFacade.getPanelPrincipal().btnRegresar.addActionListener(this);
 		viewFacade.getPanelPrincipal().btnRegresar.setActionCommand("Regresar");
 		
+		viewFacade.getPanelPrincipal().btnLlenarDatos.addActionListener(this);
+		viewFacade.getPanelPrincipal().btnLlenarDatos.setActionCommand("LlenarDatos");		
 	}
 
 	/**
@@ -212,6 +216,20 @@ public class Controller implements ActionListener {
 		}case "RegresarRegistro":{
 			viewFacade.getLoginView().setVisible(true);
 			viewFacade.getRegistroView().setVisible(false);
+			break;
+			
+		}case "LlenarDatos":{
+			JOptionPane.showMessageDialog(null, "Entro a Llenar Datos");
+			DatosPersonalesView datosPersonalesView = new DatosPersonalesView();
+			datosPersonalesView.setSize(1076, 681);
+			datosPersonalesView.setLocation(0, 0);
+			
+			viewFacade.getPanelPrincipal().panelContenedor.removeAll();
+			viewFacade.getPanelPrincipal().panelContenedor.add(datosPersonalesView ,BorderLayout.CENTER);		
+			viewFacade.getPanelPrincipal().panelContenedor.validate();	
+			viewFacade.getPanelPrincipal().panelContenedor.repaint();	
+				
+			
 			break;
 			
 		}

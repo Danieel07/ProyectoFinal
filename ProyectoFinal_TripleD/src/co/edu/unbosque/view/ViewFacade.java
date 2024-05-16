@@ -9,7 +9,7 @@ public class ViewFacade {
 	private LoginView loginView;
 	private RegistroView registroView;
 	private PanelPrincipal panelPrincipal;
-
+	private DatosPersonalesView datosPersonalesView;
 	
 	/**
 	 * El constructor de la clase ViewFacade contiene la inicializacion de los
@@ -20,6 +20,7 @@ public class ViewFacade {
 		loginView = new LoginView();
 		registroView = new RegistroView();
 		panelPrincipal =  new PanelPrincipal();
+		datosPersonalesView = new DatosPersonalesView();
 	}
 
 	/**
@@ -44,6 +45,10 @@ public class ViewFacade {
 	
 	public PanelPrincipal getPanelPrincipal() {
 		return panelPrincipal;
+	}
+	
+	public DatosPersonalesView getDatosPersonalesView() {
+		return datosPersonalesView;
 	}
 
 }

@@ -21,6 +21,7 @@ public class PanelPrincipal extends JFrame {
 	public JButton btnEscuadra;
 	public JButton btnRegresar;
 	public JButton btnLlenarDatos;
+	public JPanel panelContenedor;
 
 	public PanelPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,7 +38,7 @@ public class PanelPrincipal extends JFrame {
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
 		
-		lblBienvenido = new JLabel("New label");
+		lblBienvenido = new JLabel("Name");
 		lblBienvenido.setForeground(new Color(255, 255, 255));
 		lblBienvenido.setBounds(10, 11, 244, 14);
 		panelMenu.add(lblBienvenido);
@@ -98,10 +99,14 @@ public class PanelPrincipal extends JFrame {
 		btnGenerarReporte.setBounds(0, 354, 264, 41);
 		panelMenu.add(btnGenerarReporte);
 		
-		lblRol = new JLabel("New label");
+		lblRol = new JLabel("Rol");
 		lblRol.setForeground(Color.WHITE);
 		lblRol.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblRol.setBounds(10, 36, 244, 25);
 		panelMenu.add(lblRol);
+		
+		panelContenedor = new JPanel();
+		panelContenedor.setBounds(274, 0, 1076, 681);
+		contentPane.add(panelContenedor);
 	}
 }
