@@ -226,7 +226,7 @@ public class Controller implements ActionListener {
 			
 			viewFacade.getPanelPrincipal().panelContenedor.removeAll();
 			viewFacade.getPanelPrincipal().panelContenedor.add(datosPersonalesView ,BorderLayout.CENTER);		
-			viewFacade.getPanelPrincipal().panelContenedor.validate();	
+			         	
 			viewFacade.getPanelPrincipal().panelContenedor.repaint();	
 				
 			
