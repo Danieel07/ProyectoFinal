@@ -229,6 +229,7 @@ public class Controller implements ActionListener {
 		}case "SeleccionarTipoCiclista":{
 			System.out.println("Entro TipoCiclista");
 			String tipoCiclista = (String) viewFacade.getDatosPersonalesView().listTipoDeCiclista.getSelectedValue();
+			System.out.println(tipoCiclista);
 			switch (tipoCiclista) {
 			
 			case "Escaladores": {
@@ -311,6 +312,8 @@ public class Controller implements ActionListener {
 				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setText("Numero De Clasicos Ganados:");
 				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(true);			
 				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(true);
+				break;
+				
 			}case "Contrarrelojista":{
 				viewFacade.getDatosPersonalesView().lblListaGregario.setVisible(false);
 				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setVisible(false);
@@ -322,10 +325,11 @@ public class Controller implements ActionListener {
 				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setText("Velocidad Maxima:");
 				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(true);			
 				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(true);
+				break;
 				
 			}
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + tipoCiclista);
+				JOptionPane.showMessageDialog(null, "Algo salio Mal");
 			}
 			
 			
