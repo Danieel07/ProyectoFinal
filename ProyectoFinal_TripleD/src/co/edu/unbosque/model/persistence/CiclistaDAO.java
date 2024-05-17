@@ -49,7 +49,11 @@ public class CiclistaDAO implements CRUDOperation {
 			contenido += lista.get(i).getIdentificador() + ";";
 			contenido += lista.get(i).getNacionalidad() + ";";
 			contenido += lista.get(i).getTiempoAcumulado() + ";";
-			contenido += lista.get(i).getTipoCiclista();
+			contenido += lista.get(i).getTipoCiclista() + ";" ;
+			contenido += lista.get(i).getAtributoExtra1() + ";" ;
+			contenido += lista.get(i).getAtributoExtra2() + ";" ;
+			contenido += lista.get(i).getAtributoExtra3() + ";";
+			contenido += lista.get(i).getLlenoLosDatos();
 
 			if (i < lista.size() - 1) {
 				contenido += "\n";
@@ -84,7 +88,10 @@ public class CiclistaDAO implements CRUDOperation {
 			temp.setNacionalidad(columnas[6]);
 			temp.setTiempoAcumulado(Double.parseDouble(columnas[7]));
 			temp.setTipoCiclista(columnas[8]);
-
+			temp.setAtributoExtra1(columnas[9]);
+			temp.setAtributoExtra2(columnas[10]);
+			temp.setAtributoExtra3(columnas[11]);
+			temp.setLlenoLosDatos(Integer.parseInt(columnas[12]));
 			lista.add(temp);
 
 		}
@@ -145,6 +152,10 @@ public class CiclistaDAO implements CRUDOperation {
 			lista.get(index).setNacionalidad(info.getNacionalidad());
 			lista.get(index).setTiempoAcumulado(info.getTiempoAcumulado());
 			lista.get(index).setTipoCiclista(info.getTipoCiclista());
+			lista.get(index).setAtributoExtra1(info.getAtributoExtra1());
+			lista.get(index).setAtributoExtra2(info.getAtributoExtra2());
+			lista.get(index).setAtributoExtra3(info.getAtributoExtra3());
+			lista.get(index).setLlenoLosDatos(info.getLlenoLosDatos());
 
 		}
 		FileHandler.abrirYEscribirSerializado("CiclistaSerializado.ddd", lista);

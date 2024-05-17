@@ -81,13 +81,17 @@ public class Controller implements ActionListener {
 		viewFacade.getRegistroView().btnRegresar.addActionListener(this);
 		viewFacade.getRegistroView().btnRegresar.setActionCommand("RegresarRegistro");
 		
-		//PanelPrincipal
+		// PanelPrincipal
 		viewFacade.getPanelPrincipal().btnRegresar.addActionListener(this);
 		viewFacade.getPanelPrincipal().btnRegresar.setActionCommand("Regresar");
 		
 		viewFacade.getPanelPrincipal().btnLlenarDatos.addActionListener(this);
 		viewFacade.getPanelPrincipal().btnLlenarDatos.setActionCommand("LlenarDatos");		
-	}
+		
+		//PanelLLenarDatos
+		viewFacade.getDatosPersonalesView().btnSeleccionarTipoDeCiclista.addActionListener(this);
+		viewFacade.getDatosPersonalesView().btnSeleccionarTipoDeCiclista.setActionCommand("SeleccionarTipoCiclista");
+		}
 
 	/**
 	 * Este metodo contiene todas las acciones que se ejecutaran en el programa.
@@ -217,18 +221,116 @@ public class Controller implements ActionListener {
 			
 		}case "LlenarDatos":{
 			JOptionPane.showMessageDialog(null, "Entro a Llenar Datos");
-			DatosPersonalesView datosPersonalesView = new DatosPersonalesView();
-			datosPersonalesView.setSize(1076, 681);
-			datosPersonalesView.setLocation(0, 0);
-			
-			viewFacade.getPanelPrincipal().panelContenedor.removeAll();
-			viewFacade.getPanelPrincipal().panelContenedor.add(datosPersonalesView ,BorderLayout.CENTER);		
-			         	
-			viewFacade.getPanelPrincipal().panelContenedor.repaint();	
-				
+			viewFacade.getPanelPrincipal().setVisible(false);
+			viewFacade.getDatosPersonalesView().setVisible(true);
 			
 			break;
 			
+		}case "SeleccionarTipoCiclista":{
+			System.out.println("Entro TipoCiclista");
+			String tipoCiclista = (String) viewFacade.getDatosPersonalesView().listTipoDeCiclista.getSelectedValue();
+			switch (tipoCiclista) {
+			
+			case "Escaladores": {
+				viewFacade.getDatosPersonalesView().lblListaGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(false);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra2.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra3.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra3.setVisible(false);
+				
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setText("Aceleración En Subida:");
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(true);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(true);
+				
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setText("grado de rampa soportada:");
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setVisible(true);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra2.setVisible(true);
+				break;
+			}case "Rodadores":{
+				viewFacade.getDatosPersonalesView().lblListaGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(false);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra2.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra3.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra3.setVisible(false);
+				
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setText("Velocidad Promedio De Pedaleo:");
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(true);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(true);
+				break;
+				
+			}case "Sprinters":{
+				viewFacade.getDatosPersonalesView().lblListaGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(false);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra2.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra3.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra3.setVisible(false);
+				
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setText("Potencia Promedio:");
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(true);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(true);
+				
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setText("Velocidad Promedio:");
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setVisible(true);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra2.setVisible(true);
+				break;
+				
+			}case "Gregarios":{
+				viewFacade.getDatosPersonalesView().lblListaGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(false);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra2.setVisible(false);				
+				viewFacade.getDatosPersonalesView().lblAtributoExtra3.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra3.setVisible(false);
+				
+				
+				viewFacade.getDatosPersonalesView().lblListaGregario.setLocation(248, 30);
+				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setLocation(258, 55);
+				viewFacade.getDatosPersonalesView().lblListaGregario.setVisible(true);
+				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setVisible(true);
+				break;
+				
+			}case "Clasicómanos":{
+				viewFacade.getDatosPersonalesView().lblListaGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(false);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra2.setVisible(false);
+				
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setText("Numero De Clasicos Ganados:");
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(true);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(true);
+			}case "Contrarrelojista":{
+				viewFacade.getDatosPersonalesView().lblListaGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().listFuncionDeGregario.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(false);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(false);
+				viewFacade.getDatosPersonalesView().lblAtributoExtra2.setVisible(false);						
+				viewFacade.getDatosPersonalesView().txtAtributoExtra2.setVisible(false);
+				
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setText("Velocidad Maxima:");
+				viewFacade.getDatosPersonalesView().lblAtributoExtra1.setVisible(true);			
+				viewFacade.getDatosPersonalesView().txtAtributoExtra1.setVisible(true);
+				
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + tipoCiclista);
+			}
+			
+			
+			
+			break;
 		}
 		default:
 			JOptionPane.showMessageDialog(null, "Algo salio mal");

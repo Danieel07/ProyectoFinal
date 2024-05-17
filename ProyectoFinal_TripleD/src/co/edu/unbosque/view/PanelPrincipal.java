@@ -21,11 +21,10 @@ public class PanelPrincipal extends JFrame {
 	public JButton btnEscuadra;
 	public JButton btnRegresar;
 	public JButton btnLlenarDatos;
-	public JPanel panelContenedor;
 
 	public PanelPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 25, 1366, 720);
+		setBounds(0, 25, 628, 554);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -34,7 +33,7 @@ public class PanelPrincipal extends JFrame {
 		
 		JPanel panelMenu = new JPanel();
 		panelMenu.setBackground(new Color(0, 128, 192));
-		panelMenu.setBounds(0, 0, 264, 681);
+		panelMenu.setBounds(0, 0, 612, 681);
 		contentPane.add(panelMenu);
 		panelMenu.setLayout(null);
 		
@@ -49,7 +48,7 @@ public class PanelPrincipal extends JFrame {
 		btnRegresar.setBorder(null);
 		btnRegresar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnRegresar.setBackground(new Color(0, 82, 164));
-		btnRegresar.setBounds(0, 629, 264, 41);
+		btnRegresar.setBounds(174, 415, 264, 41);
 		panelMenu.add(btnRegresar);
 		
 		btnLlenarDatos = new JButton("Datos Personales");
@@ -57,14 +56,14 @@ public class PanelPrincipal extends JFrame {
 		btnLlenarDatos.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnLlenarDatos.setBorder(null);
 		btnLlenarDatos.setBackground(new Color(0, 82, 164));
-		btnLlenarDatos.setBounds(0, 104, 264, 41);
+		btnLlenarDatos.setBounds(174, 104, 264, 41);
 		panelMenu.add(btnLlenarDatos);
 		
 		JLabel lblMenu = new JLabel("Menu:");
 		lblMenu.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMenu.setForeground(Color.WHITE);
 		lblMenu.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblMenu.setBounds(10, 72, 244, 14);
+		lblMenu.setBounds(184, 72, 244, 14);
 		panelMenu.add(lblMenu);
 		
 		btnEscuadra = new JButton("Escuadra");
@@ -72,7 +71,7 @@ public class PanelPrincipal extends JFrame {
 		btnEscuadra.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnEscuadra.setBorder(null);
 		btnEscuadra.setBackground(new Color(0, 82, 164));
-		btnEscuadra.setBounds(0, 168, 264, 41);
+		btnEscuadra.setBounds(174, 168, 264, 41);
 		panelMenu.add(btnEscuadra);
 		
 		btnCrearEscuadra = new JButton("Crear Escuadra");
@@ -80,7 +79,7 @@ public class PanelPrincipal extends JFrame {
 		btnCrearEscuadra.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnCrearEscuadra.setBorder(null);
 		btnCrearEscuadra.setBackground(new Color(0, 82, 164));
-		btnCrearEscuadra.setBounds(0, 231, 264, 41);
+		btnCrearEscuadra.setBounds(174, 231, 264, 41);
 		panelMenu.add(btnCrearEscuadra);
 		
 		btnSimularCarrera = new JButton("Simular Carrera");
@@ -88,7 +87,7 @@ public class PanelPrincipal extends JFrame {
 		btnSimularCarrera.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnSimularCarrera.setBorder(null);
 		btnSimularCarrera.setBackground(new Color(0, 82, 164));
-		btnSimularCarrera.setBounds(0, 293, 264, 41);
+		btnSimularCarrera.setBounds(174, 293, 264, 41);
 		panelMenu.add(btnSimularCarrera);
 		
 		btnGenerarReporte = new JButton("Generar Reporte");
@@ -96,7 +95,7 @@ public class PanelPrincipal extends JFrame {
 		btnGenerarReporte.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnGenerarReporte.setBorder(null);
 		btnGenerarReporte.setBackground(new Color(0, 82, 164));
-		btnGenerarReporte.setBounds(0, 354, 264, 41);
+		btnGenerarReporte.setBounds(174, 354, 264, 41);
 		panelMenu.add(btnGenerarReporte);
 		
 		lblRol = new JLabel("Rol");
@@ -104,9 +103,5 @@ public class PanelPrincipal extends JFrame {
 		lblRol.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblRol.setBounds(10, 36, 244, 25);
 		panelMenu.add(lblRol);
-		
-		panelContenedor = new JPanel();
-		panelContenedor.setBounds(274, 0, 1076, 681);
-		contentPane.add(panelContenedor);
 	}
 }

@@ -49,6 +49,7 @@ public class DirectorDeportivoDAO implements CRUDOperation {
 			contenido += lista.get(i).getIdentificador() + ";";
 			contenido += lista.get(i).getAniosExp() + ";";
 			contenido += lista.get(i).getNacionalidad() + ";";
+			contenido += lista.get(i).getLista();
 
 			if (i < lista.size() - 1) {
 				contenido += "\n";
@@ -78,6 +79,14 @@ public class DirectorDeportivoDAO implements CRUDOperation {
 			temp.setIdentificador(Long.parseLong(columnas[1]));
 			temp.setAniosExp(Integer.parseInt(columnas[2]));
 			temp.setNacionalidad(columnas[3]);
+			String[] ciclistas = columnas[4].split(",");
+			ArrayList<CiclistaDTO> listaCiclistas = new ArrayList<>();
+			for (String ciclistaIdStr : ciclistas) {
+				CiclistaDTO ciclista = new CiclistaDTO();
+				ciclista.setIdentificador(Long.parseLong(ciclistaIdStr));
+				listaCiclistas.add(ciclista);
+			}
+			temp.setLista(listaCiclistas);
 
 			lista.add(temp);
 
