@@ -32,6 +32,10 @@ public class DirectorDeportivoDTO extends PersonaDTO implements Serializable {
 		super(nombre, identificador, aniosExp, nacionalidad);
 		this.nombreEscuadra = nombreEscuadra;
 	}
+	
+	/**
+	 * Este es el bueno
+	 */
 
 	public DirectorDeportivoDTO(String usuario, String clave, String tipoDeUsuario, String correo, int id,
 			String nombre, long identificador, int aniosExp, String nacionalidad, String nombreEscuadra) {

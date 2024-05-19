@@ -46,7 +46,8 @@ public class EscuadraDAO implements CRUDOperation {
 			contenido += lista.get(i).getCiclista4() + ";";
 			contenido += lista.get(i).getCiclista5() + ";";
 			contenido += lista.get(i).getCiclista6() + ";";
-			contenido += lista.get(i).getMasajista();
+			contenido += lista.get(i).getMasajista() + ";";
+			contenido += lista.get(i).getDirectorTecnico();
 
 			if (i < lista.size() - 1) {
 				contenido += "\n";
@@ -80,6 +81,7 @@ public class EscuadraDAO implements CRUDOperation {
 			temp.setCiclista5(columnas[6]);
 			temp.setCiclista6(columnas[7]);
 			temp.setMasajista(columnas[8]);
+			temp.setDirectorTecnico(columnas[9]);
 			lista.add(temp);
 
 		}
@@ -140,7 +142,7 @@ public class EscuadraDAO implements CRUDOperation {
 			lista.get(index).setCiclista5(info.getCiclista5());
 			lista.get(index).setCiclista6(info.getCiclista6());
 			lista.get(index).setMasajista(info.getMasajista());
-
+			lista.get(index).setDirectorTecnico(info.getDirectorTecnico());
 		}
 		FileHandler.abrirYEscribirSerializado("EscuadraSerealizado.ddd", lista);
 		escribirEnArchivo();

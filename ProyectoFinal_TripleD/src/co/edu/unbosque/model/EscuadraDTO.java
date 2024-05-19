@@ -1,6 +1,12 @@
 package co.edu.unbosque.model;
 
-public class EscuadraDTO {
+import java.io.Serializable;
+
+public class EscuadraDTO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4557241762228442934L;
 	private String nombre;
 	private String nacionalidad;
 	private String ciclista1;
@@ -10,11 +16,13 @@ public class EscuadraDTO {
 	private String ciclista5;
 	private String ciclista6;
 	private String Masajista;
+	private String DirectorTecnico;
 	
 	public EscuadraDTO() {
 	}
+	
 	public EscuadraDTO(String nombre, String nacionalidad, String ciclista1, String ciclista2, String ciclista3,
-			String ciclista4, String ciclista5, String ciclista6, String masajista) {
+			String ciclista4, String ciclista5, String ciclista6, String masajista, String directorTecnico) {
 		super();
 		this.nombre = nombre;
 		this.nacionalidad = nacionalidad;
@@ -25,6 +33,7 @@ public class EscuadraDTO {
 		this.ciclista5 = ciclista5;
 		this.ciclista6 = ciclista6;
 		Masajista = masajista;
+		DirectorTecnico = directorTecnico;
 	}
 	public String getNombre() {
 		return nombre;
@@ -79,6 +88,12 @@ public class EscuadraDTO {
 	}
 	public void setMasajista(String masajista) {
 		Masajista = masajista;
+	}
+	public String getDirectorTecnico() {
+		return DirectorTecnico;
+	}
+	public void setDirectorTecnico(String directorTecnico) {
+		DirectorTecnico = directorTecnico;
 	}
 	
 	

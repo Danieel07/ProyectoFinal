@@ -54,7 +54,7 @@ public class CrearEscuadraView extends JFrame {
 	public JButton btnSelecionar;
 	public JButton btnCrear;
 	public JTextField txtTiempoAcumulado;
-	private DefaultTableModel modelTablaEscuadra;
+	public DefaultTableModel modelTablaEscuadra;
 
 	/**
 	 * Create the frame.
@@ -139,11 +139,13 @@ public class CrearEscuadraView extends JFrame {
 		contentPane.add(txtCadenciaPedaleo);
 		
 		txtAtributoExtra3 = new JTextField();
+		txtAtributoExtra3.setVisible(false);
 		txtAtributoExtra3.setColumns(10);
 		txtAtributoExtra3.setBounds(662, 440, 165, 20);
 		contentPane.add(txtAtributoExtra3);
 		
 		txtAtributoExtra1 = new JTextField();
+		txtAtributoExtra1.setVisible(false);
 		txtAtributoExtra1.setColumns(10);
 		txtAtributoExtra1.setBounds(662, 320, 165, 20);
 		contentPane.add(txtAtributoExtra1);
@@ -159,21 +161,25 @@ public class CrearEscuadraView extends JFrame {
 		contentPane.add(lblCadenciaDePedaleo);
 		
 		txtAtributoExtra2 = new JTextField();
+		txtAtributoExtra2.setVisible(false);
 		txtAtributoExtra2.setColumns(10);
 		txtAtributoExtra2.setBounds(662, 376, 165, 20);
 		contentPane.add(txtAtributoExtra2);
 		
 		lblAtributoExtra1 = new JLabel("Extra 1:");
+		lblAtributoExtra1.setVisible(false);
 		lblAtributoExtra1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAtributoExtra1.setBounds(662, 300, 277, 14);
 		contentPane.add(lblAtributoExtra1);
 		
 		lblAtributoExtra2 = new JLabel("Extra 2:");
+		lblAtributoExtra2.setVisible(false);
 		lblAtributoExtra2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAtributoExtra2.setBounds(662, 355, 277, 14);
 		contentPane.add(lblAtributoExtra2);
 		
 		lblAtributoExtra3 = new JLabel("Extra 3:");
+		lblAtributoExtra3.setVisible(false);
 		lblAtributoExtra3.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAtributoExtra3.setBounds(662, 421, 301, 14);
 		contentPane.add(lblAtributoExtra3);
@@ -189,6 +195,7 @@ public class CrearEscuadraView extends JFrame {
 		btnRegresarPanelPrincipal = new JButton("Regresar");
 		btnRegresarPanelPrincipal.setBounds(436, 248, 99, 32);
 		contentPane.add(btnRegresarPanelPrincipal);
+		
 		
 		tablaEscuadra = new JTable();
 		tablaEscuadra.setBounds(558, 11, 427, 269);

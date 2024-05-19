@@ -10,12 +10,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class EscuadraView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
+	public JTable tableMiEscuadra;
+	public JLabel lblTitulo;
+	public JButton btnRegresar;
 
 	/**
 	 * Create the frame.
@@ -30,15 +36,23 @@ public class EscuadraView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		table = new JTable();
-		table.setBounds(57, 91, 530, 294);
-		contentPane.add(table);
+		lblTitulo = new JLabel("Mi Escuadra");
+		lblTitulo.setBounds(187, 11, 265, 14);
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setForeground(new Color(255, 255, 255));
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 15));
+		contentPane.add(lblTitulo);
 		
-		JLabel lblNewLabel = new JLabel("Mi Escuadra");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(266, 54, 173, 14);
-		contentPane.add(lblNewLabel);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(10, 47, 620, 171);
+		contentPane.add(scrollPane);
+		
+		tableMiEscuadra = new JTable();
+		scrollPane.setViewportView(tableMiEscuadra);
+		
+		btnRegresar = new JButton("Regresar");
+		btnRegresar.setBounds(10, 229, 89, 23);
+		contentPane.add(btnRegresar);
 	}
-
 }

@@ -173,8 +173,4 @@ public class MasajistaDAO implements CRUDOperation {
 		return lista;
 	}
 
-	public ArrayList<MasajistaDTO> getList() {
-		return lista;
-	}
-
 }

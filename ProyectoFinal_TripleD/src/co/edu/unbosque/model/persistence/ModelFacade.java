@@ -1,5 +1,7 @@
 package co.edu.unbosque.model.persistence;
 
+import co.edu.unbosque.model.EscuadraDTO;
+
 /**
  * La clase ModelFacade contiene la informacion con respecto a la inicializacion
  * de los DAO.
@@ -10,6 +12,7 @@ public class ModelFacade {
 	private CiclistaDAO cDAO;
 	private MasajistaDAO mDAO;
 	private UsuarioDAO uDAO;
+	private EscuadraDAO eDAO;
 
 	/**
 	 * Constructor de la clase ModelFacade que inicializa los DAO.
@@ -20,6 +23,7 @@ public class ModelFacade {
 		cDAO = new CiclistaDAO();
 		mDAO = new MasajistaDAO();
 		uDAO = new UsuarioDAO();
+		eDAO = new EscuadraDAO();
 	}
 
 	/**
@@ -61,5 +65,10 @@ public class ModelFacade {
 	public UsuarioDAO getuDAO() {
 		return uDAO;
 	}
+
+	public EscuadraDAO geteDAO() {
+		return eDAO;
+	}
+	
 
 }

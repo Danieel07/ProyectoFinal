@@ -143,16 +143,19 @@ public class DirectorDeportivoDAO implements CRUDOperation {
 			return false;
 		} else {
 			DirectorDeportivoDTO info = (DirectorDeportivoDTO) o;
+			lista.get(index).setUsuario(info.getUsuario());
+			lista.get(index).setClave(info.getClave());
+			lista.get(index).setTipoDeUsuario(info.getTipoDeUsuario());
+			lista.get(index).setCorreo(info.getCorreo());
+			lista.get(index).setId(info.getId());
 			lista.get(index).setNombre(info.getNombre());
 			lista.get(index).setIdentificador(info.getIdentificador());
 			lista.get(index).setAniosExp(info.getAniosExp());
 			lista.get(index).setNacionalidad(info.getNacionalidad());
 			lista.get(index).setNombreEscuadra(info.getNombreEscuadra());
-			lista.get(index).setNombre(info.getNombre());
-			lista.get(index).setClave(info.getClave());
 
 		}
-		FileHandler.abrirYEscribirSerializado("CiclistaSerializado.ddd", lista);
+		FileHandler.abrirYEscribirSerializado("DirectorDeportivoSerializado.ddd", lista);
 		escribirEnArchivo();
 		return true;
 	}
