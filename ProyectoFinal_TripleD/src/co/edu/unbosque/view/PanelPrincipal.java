@@ -24,7 +24,7 @@ public class PanelPrincipal extends JFrame {
 
 	public PanelPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 25, 628, 554);
+		setBounds(370, 130, 628, 554);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

@@ -10,6 +10,7 @@ public class ViewFacade {
 	private RegistroView registroView;
 	private PanelPrincipal panelPrincipal;
 	private DatosPersonalesView datosPersonalesView;
+	private CrearEscuadraView crearEscuadraView;
 	
 	/**
 	 * El constructor de la clase ViewFacade contiene la inicializacion de los
@@ -21,6 +22,11 @@ public class ViewFacade {
 		registroView = new RegistroView();
 		panelPrincipal =  new PanelPrincipal();
 		datosPersonalesView = new DatosPersonalesView();
+		crearEscuadraView = new CrearEscuadraView();
+	}
+
+	public CrearEscuadraView getCrearEscuadraView() {
+		return crearEscuadraView;
 	}
 
 	/**

@@ -34,10 +34,15 @@ public class DatosPersonalesView extends JFrame {
 	public JLabel lblAtributoExtra3;
 	public JList<String> listFuncionDeGregario;
 	public JLabel lblListaGregario;
+	public JButton btnRegresarDatos;
+	public JLabel lblTipoDeCiclista;
+	public JLabel lblEspecialidad;
+	public JLabel lblContextura;
+	public JLabel lblCadenciaDePedaleo;
 	
 	public DatosPersonalesView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 875, 660);
+		setBounds(370, 80, 657, 660);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -48,6 +53,7 @@ public class DatosPersonalesView extends JFrame {
 			getContentPane().add(lblNombre);
 			
 			txtNombre = new JTextField();
+			txtNombre.setEnabled(false);
 			txtNombre.setBounds(40, 55, 165, 20);
 			getContentPane().add(txtNombre);
 			txtNombre.setColumns(10);
@@ -58,6 +64,7 @@ public class DatosPersonalesView extends JFrame {
 			getContentPane().add(lblCedula);
 			
 			txtCedula = new JTextField();
+			txtCedula.setEnabled(false);
 			txtCedula.setBounds(40, 111, 165, 20);
 			txtCedula.setColumns(10);
 			getContentPane().add(txtCedula);
@@ -68,6 +75,7 @@ public class DatosPersonalesView extends JFrame {
 			getContentPane().add(lblAosDeExperiencia);
 			
 			txtAnosExperiencia = new JTextField();
+			txtAnosExperiencia.setEnabled(false);
 			txtAnosExperiencia.setBounds(40, 167, 165, 20);
 			txtAnosExperiencia.setColumns(10);
 			getContentPane().add(txtAnosExperiencia);
@@ -77,47 +85,60 @@ public class DatosPersonalesView extends JFrame {
 			lblNacionalidad.setFont(new Font("Tahoma", Font.BOLD, 14));
 			getContentPane().add(lblNacionalidad);
 			
-			JLabel lblTipoDeCiclista = new JLabel("Tipo De Ciclista:");
+			lblTipoDeCiclista = new JLabel("Tipo De Ciclista:");
+			lblTipoDeCiclista.setVisible(false);
 			lblTipoDeCiclista.setBounds(30, 254, 175, 14);
 			lblTipoDeCiclista.setFont(new Font("Tahoma", Font.BOLD, 14));
 			getContentPane().add(lblTipoDeCiclista);
 			
 			txtEspecialidad = new JTextField();
+			txtEspecialidad.setVisible(false);
+			txtEspecialidad.setEnabled(false);
 			txtEspecialidad.setBounds(40, 429, 165, 20);
 			txtEspecialidad.setColumns(10);
 			getContentPane().add(txtEspecialidad);
 			
-			JLabel lblEspecialidad = new JLabel("Especialidad:");
+			lblEspecialidad = new JLabel("Especialidad:");
+			lblEspecialidad.setVisible(false);
 			lblEspecialidad.setBounds(30, 404, 118, 14);
 			lblEspecialidad.setFont(new Font("Tahoma", Font.BOLD, 14));
 			getContentPane().add(lblEspecialidad);
 			
 			txtContextura = new JTextField();
+			txtContextura.setVisible(false);
+			txtContextura.setEnabled(false);
 			txtContextura.setBounds(40, 485, 165, 20);
 			txtContextura.setColumns(10);
 			getContentPane().add(txtContextura);
 			
-			JLabel lblContextura = new JLabel("Contextura:");
+			lblContextura = new JLabel("Contextura:");
+			lblContextura.setVisible(false);
 			lblContextura.setBounds(30, 460, 118, 14);
 			lblContextura.setFont(new Font("Tahoma", Font.BOLD, 14));
 			getContentPane().add(lblContextura);
 			
-			JLabel lblCadenciaDePedaleo = new JLabel("Cadencia de pedaleo:");
+			lblCadenciaDePedaleo = new JLabel("Cadencia de pedaleo:");
+			lblCadenciaDePedaleo.setVisible(false);
 			lblCadenciaDePedaleo.setBounds(30, 516, 175, 14);
 			lblCadenciaDePedaleo.setFont(new Font("Tahoma", Font.BOLD, 14));
 			getContentPane().add(lblCadenciaDePedaleo);
 			
 			txtCadenciaPedaleo = new JTextField();
+			txtCadenciaPedaleo.setVisible(false);
+			txtCadenciaPedaleo.setEnabled(false);
 			txtCadenciaPedaleo.setBounds(40, 541, 165, 20);
 			txtCadenciaPedaleo.setColumns(10);
 			getContentPane().add(txtCadenciaPedaleo);
 			
 			txtNacionalidad = new JTextField();
+			txtNacionalidad.setEnabled(false);
 			txtNacionalidad.setBounds(40, 223, 165, 20);
 			txtNacionalidad.setColumns(10);
 			getContentPane().add(txtNacionalidad);
 			
 			listTipoDeCiclista = new JList<String>();
+			listTipoDeCiclista.setEnabled(false);
+			listTipoDeCiclista.setVisible(false);
 			listTipoDeCiclista.setBounds(40, 279, 165, 123);
 			listTipoDeCiclista.setModel(new AbstractListModel<String>() {
 				/**
@@ -135,6 +156,7 @@ public class DatosPersonalesView extends JFrame {
 			getContentPane().add(listTipoDeCiclista);
 			
 			txtAtributoExtra1 = new JTextField();
+			txtAtributoExtra1.setEnabled(false);
 			txtAtributoExtra1.setColumns(10);
 			txtAtributoExtra1.setBounds(258, 55, 165, 20);
 			txtAtributoExtra1.setVisible(false);
@@ -147,6 +169,7 @@ public class DatosPersonalesView extends JFrame {
 			getContentPane().add(lblAtributoExtra1);
 			
 			txtAtributoExtra2 = new JTextField();
+			txtAtributoExtra2.setEnabled(false);
 			txtAtributoExtra2.setColumns(10);
 			txtAtributoExtra2.setBounds(258, 111, 165, 20);
 			txtAtributoExtra2.setVisible(false);
@@ -159,6 +182,7 @@ public class DatosPersonalesView extends JFrame {
 			getContentPane().add(lblAtributoExtra2);
 			
 			txtAtributoExtra3 = new JTextField();
+			txtAtributoExtra3.setEnabled(false);
 			txtAtributoExtra3.setColumns(10);
 			txtAtributoExtra3.setBounds(258, 167, 165, 20);
 			txtAtributoExtra3.setVisible(false);
@@ -171,19 +195,23 @@ public class DatosPersonalesView extends JFrame {
 			getContentPane().add(lblAtributoExtra3);
 			
 			btnSeleccionarTipoDeCiclista = new JButton("Seleccionar");
+			btnSeleccionarTipoDeCiclista.setVisible(false);
 			btnSeleccionarTipoDeCiclista.setBounds(215, 379, 118, 23);
 			getContentPane().add(btnSeleccionarTipoDeCiclista);
 			
 			btnGuardarDatos = new JButton("Guardar");
+			btnGuardarDatos.setVisible(false);
 			btnGuardarDatos.setBounds(402, 572, 118, 38);
 			getContentPane().add(btnGuardarDatos);
 			
 			btnModificarDatos = new JButton("Modificar");
+			btnModificarDatos.setVisible(false);
 			btnModificarDatos.setBounds(245, 572, 118, 38);
 			getContentPane().add(btnModificarDatos);
 			contentPane.setLayout(null);
 			
 			listFuncionDeGregario = new JList<String>();
+			listFuncionDeGregario.setEnabled(false);
 			listFuncionDeGregario.setModel(new AbstractListModel<String>() {
 				private static final long serialVersionUID = -3462223230159663809L;
 				String[] values = new String[] {"Abastecedor", "Mantener Ritmo", "Captura de Fugas", "Posicionar al Lider", "Proteger al Lider"};
@@ -203,6 +231,10 @@ public class DatosPersonalesView extends JFrame {
 			lblListaGregario.setBounds(245, 194, 272, 23);
 			lblListaGregario.setVisible(false);
 			contentPane.add(lblListaGregario);
+			
+			btnRegresarDatos = new JButton("Regresar");
+			btnRegresarDatos.setBounds(10, 572, 89, 31);
+			contentPane.add(btnRegresarDatos);
 
 	}
 }

@@ -33,7 +33,8 @@ public class CiclistaDTO extends PersonaDTO implements Serializable {
 
 
 	public CiclistaDTO(String tipoCiclista, String contextura, double tiempoAcumulado, String especialidad,
-			String cadenciaPedaleo, String atributoExtra1, String atributoExtra2, String atributoExtra3,int llenoLosDatos) {
+			String cadenciaPedaleo, String atributoExtra1, String atributoExtra2, String atributoExtra3,
+			int llenoLosDatos) {
 		super();
 		this.tipoCiclista = tipoCiclista;
 		this.contextura = contextura;
@@ -43,7 +44,7 @@ public class CiclistaDTO extends PersonaDTO implements Serializable {
 		this.atributoExtra1 = atributoExtra1;
 		this.atributoExtra2 = atributoExtra2;
 		this.atributoExtra3 = atributoExtra3;
-		this.llenoLosDatos =  llenoLosDatos;
+		this.llenoLosDatos = llenoLosDatos;
 	}
 
 
@@ -63,8 +64,55 @@ public class CiclistaDTO extends PersonaDTO implements Serializable {
 	}
 
 
+	public CiclistaDTO(String usuario, String clave, String tipoDeUsuario, String correo, int id, String nombre,
+			long identificador, int aniosExp, String nacionalidad, String tipoCiclista, String contextura,
+			double tiempoAcumulado, String especialidad, String cadenciaPedaleo, String atributoExtra1,
+			String atributoExtra2, String atributoExtra3, int llenoLosDatos) {
+		super(usuario, clave, tipoDeUsuario, correo, id, nombre, identificador, aniosExp, nacionalidad);
+		this.tipoCiclista = tipoCiclista;
+		this.contextura = contextura;
+		this.tiempoAcumulado = tiempoAcumulado;
+		this.especialidad = especialidad;
+		this.cadenciaPedaleo = cadenciaPedaleo;
+		this.atributoExtra1 = atributoExtra1;
+		this.atributoExtra2 = atributoExtra2;
+		this.atributoExtra3 = atributoExtra3;
+		this.llenoLosDatos = llenoLosDatos;
+	}
+
+
+	public CiclistaDTO(String usuario, String clave, String tipoDeUsuario, String correo, int id, String tipoCiclista,
+			String contextura, double tiempoAcumulado, String especialidad, String cadenciaPedaleo,
+			String atributoExtra1, String atributoExtra2, String atributoExtra3, int llenoLosDatos) {
+		super(usuario, clave, tipoDeUsuario, correo, id);
+		this.tipoCiclista = tipoCiclista;
+		this.contextura = contextura;
+		this.tiempoAcumulado = tiempoAcumulado;
+		this.especialidad = especialidad;
+		this.cadenciaPedaleo = cadenciaPedaleo;
+		this.atributoExtra1 = atributoExtra1;
+		this.atributoExtra2 = atributoExtra2;
+		this.atributoExtra3 = atributoExtra3;
+		this.llenoLosDatos = llenoLosDatos;
+	}
+
+
 	public CiclistaDTO(String nombre, long identificador, int aniosExp, String nacionalidad) {
 		super(nombre, identificador, aniosExp, nacionalidad);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public CiclistaDTO(String usuario, String clave, String tipoDeUsuario, String correo, int id, String nombre,
+			long identificador, int aniosExp, String nacionalidad) {
+		super(usuario, clave, tipoDeUsuario, correo, id, nombre, identificador, aniosExp, nacionalidad);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public CiclistaDTO(String usuario, String clave, String tipoDeUsuario, String correo, int id) {
+		super(usuario, clave, tipoDeUsuario, correo, id);
+		// TODO Auto-generated constructor stub
 	}
 
 

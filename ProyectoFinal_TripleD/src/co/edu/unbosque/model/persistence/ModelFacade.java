@@ -8,7 +8,6 @@ package co.edu.unbosque.model.persistence;
 public class ModelFacade {
 	private DirectorDeportivoDAO ddDAO;
 	private CiclistaDAO cDAO;
-	private EquipoDAO eDAO;
 	private MasajistaDAO mDAO;
 	private UsuarioDAO uDAO;
 
@@ -19,7 +18,6 @@ public class ModelFacade {
 	public ModelFacade() {
 		ddDAO = new DirectorDeportivoDAO();
 		cDAO = new CiclistaDAO();
-		eDAO = new EquipoDAO();
 		mDAO = new MasajistaDAO();
 		uDAO = new UsuarioDAO();
 	}
@@ -45,19 +43,9 @@ public class ModelFacade {
 	}
 
 	/**
-	 * Obtiene el EquipoDAO.
+	 * Obtiene el MasajitaDAO.
 	 * 
 	 * @return eDAO.
-	 */
-
-	public EquipoDAO geteDAO() {
-		return eDAO;
-	}
-
-	/**
-	 * Obtiene el MasajistaDAO.
-	 * 
-	 * @return mDAO.
 	 */
 
 	public MasajistaDAO getmDAO() {

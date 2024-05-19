@@ -2,34 +2,31 @@ package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
 
-import co.edu.unbosque.model.MasajistaDTO;
+import co.edu.unbosque.model.EscuadraDTO;
 
-/**
- * MasajistaDAO Se realiza las operaciones basicas con un masajista.
- */
-public class MasajistaDAO implements CRUDOperation {
-	private ArrayList<MasajistaDTO> lista;
+public class EscuadraDAO implements CRUDOperation {
+	private ArrayList<EscuadraDTO> lista;
 
 	/**
-	 * Constructor de la clase MasajistaDAO que inicializa la lista de masajistas y
+	 * Constructor de la clase EscuadrasDAO que inicializa la lista de Escuadras y
 	 * utiliza la funcion de leer desde serializado.
 	 */
-	public MasajistaDAO() {
+	public EscuadraDAO() {
 		lista = new ArrayList<>();
 		leerDesdeSerializado();
 	}
 
 	/**
-	 * Lee la lista de masajistas mediante un archivo serializado.
+	 * Lee la lista de Escuadras mediante un archivo serializado.
 	 */
 
 	public void leerDesdeSerializado() {
 
-		Object temp = FileHandler.abrirYLeerSerializable("MasajistaSerializado.ddd");
+		Object temp = FileHandler.abrirYLeerSerializable("EscuadraSerealizado.ddd");
 		if (temp == null) {
 			lista = new ArrayList<>();
 		} else {
-			lista = (ArrayList<MasajistaDTO>) temp;
+			lista = (ArrayList<EscuadraDTO>) temp;
 		}
 	}
 
@@ -42,14 +39,14 @@ public class MasajistaDAO implements CRUDOperation {
 		String contenido = "";
 		for (int i = 0; i < lista.size(); i++) {
 			contenido += lista.get(i).getNombre() + ";";
-			contenido += lista.get(i).getAniosExp() + ";";
-			contenido += lista.get(i).getIdentificador() + ";";
 			contenido += lista.get(i).getNacionalidad() + ";";
-			contenido += lista.get(i).getUsuario()+ ";";
-			contenido += lista.get(i).getClave()+ ";";
-			contenido += lista.get(i).getCorreo()+ ";";
-			contenido += lista.get(i).getTipoDeUsuario()+ ";";
-			contenido += lista.get(i).getId();
+			contenido += lista.get(i).getCiclista1() + ";";
+			contenido += lista.get(i).getCiclista2() + ";";
+			contenido += lista.get(i).getCiclista3() + ";";
+			contenido += lista.get(i).getCiclista4() + ";";
+			contenido += lista.get(i).getCiclista5() + ";";
+			contenido += lista.get(i).getCiclista6() + ";";
+			contenido += lista.get(i).getMasajista();
 
 			if (i < lista.size() - 1) {
 				contenido += "\n";
@@ -57,35 +54,32 @@ public class MasajistaDAO implements CRUDOperation {
 
 		}
 
-		FileHandler.abrirYEscribirArchivo("Masajista.csv", contenido);
+		FileHandler.abrirYEscribirArchivo("Escuadras.csv", contenido);
 	}
 
 	/**
-	 * Lee la lista de masajista desde un archivo de texto.
+	 * Lee la lista de Escuadras desde un archivo de texto.
 	 */
 
 	public void leerDesdeArchivo() {
-		String contenido = FileHandler.abrirYLeerArchivo("Masajista.csv");
+		String contenido = FileHandler.abrirYLeerArchivo("Escuadras.csv");
 		if (contenido.equals("")) {
 			lista = new ArrayList<>();
 			return;
 		}
-
 		String[] filas = contenido.split("\n");
 		for (int i = 0; i < filas.length; i++) {
 			String[] columnas = filas[i].split(";");
-			MasajistaDTO temp = new MasajistaDTO();
+			EscuadraDTO temp = new EscuadraDTO();
 			temp.setNombre(columnas[0]);
-			temp.setAniosExp(Integer.parseInt(columnas[1]));
-			temp.setIdentificador(Long.parseLong(columnas[2]));
-			temp.setNacionalidad(columnas[3]);
-			temp.setLlenoDatos(columnas[4]);
-			temp.setUsuario(columnas[5]);
-			temp.setClave(columnas[6]);
-			temp.setCorreo(columnas[7]);
-			temp.setTipoDeUsuario(columnas[8]);
-			temp.setId(Integer.parseInt(columnas[9]));
-
+			temp.setNacionalidad(columnas[1]);
+			temp.setCiclista1(columnas[2]);
+			temp.setCiclista2(columnas[3]);
+			temp.setCiclista3(columnas[4]);
+			temp.setCiclista4(columnas[5]);
+			temp.setCiclista5(columnas[6]);
+			temp.setCiclista6(columnas[7]);
+			temp.setMasajista(columnas[8]);
 			lista.add(temp);
 
 		}
@@ -97,10 +91,10 @@ public class MasajistaDAO implements CRUDOperation {
 	 */
 
 	public void create(Object o) {
-		MasajistaDTO nuevo = (MasajistaDTO) o;
+		EscuadraDTO nuevo = (EscuadraDTO) o;
 		lista.add(nuevo);
 		escribirEnArchivo();
-		FileHandler.abrirYEscribirSerializado("MasajistaSerializado.ddd", lista);
+		FileHandler.abrirYEscribirSerializado("EscuadraSerealizado.ddd", lista);
 
 	}
 
@@ -120,7 +114,7 @@ public class MasajistaDAO implements CRUDOperation {
 		} else {
 			lista.remove(index);
 			escribirEnArchivo();
-			FileHandler.abrirYEscribirSerializado("MasajistaSerializado.ddd", lista);
+			FileHandler.abrirYEscribirSerializado("EscuadraSerealizado.ddd", lista);
 			return true;
 		}
 	}
@@ -136,14 +130,19 @@ public class MasajistaDAO implements CRUDOperation {
 		if (index < 0 || index >= lista.size()) {
 			return false;
 		} else {
-			MasajistaDTO info = (MasajistaDTO) o;
+			EscuadraDTO info = (EscuadraDTO) o;
 			lista.get(index).setNombre(info.getNombre());
-			lista.get(index).setAniosExp(info.getAniosExp());
-			lista.get(index).setIdentificador(info.getIdentificador());
 			lista.get(index).setNacionalidad(info.getNacionalidad());
+			lista.get(index).setCiclista1(info.getCiclista1());
+			lista.get(index).setCiclista2(info.getCiclista2());
+			lista.get(index).setCiclista3(info.getCiclista3());
+			lista.get(index).setCiclista4(info.getCiclista4());
+			lista.get(index).setCiclista5(info.getCiclista5());
+			lista.get(index).setCiclista6(info.getCiclista6());
+			lista.get(index).setMasajista(info.getMasajista());
 
 		}
-		FileHandler.abrirYEscribirSerializado("MasajistaSerializado.ddd", lista);
+		FileHandler.abrirYEscribirSerializado("EscuadraSerealizado.ddd", lista);
 		escribirEnArchivo();
 		return true;
 	}
@@ -156,7 +155,7 @@ public class MasajistaDAO implements CRUDOperation {
 	@Override
 	public String read() {
 		String exit = "";
-		for (MasajistaDTO m : lista) {
+		for (EscuadraDTO m : lista) {
 			exit += m.toString() + "\n";
 		}
 
@@ -169,12 +168,9 @@ public class MasajistaDAO implements CRUDOperation {
 	 * @return lista
 	 */
 
-	public ArrayList<MasajistaDTO> getLista() {
+	public ArrayList<EscuadraDTO> getLista() {
 		return lista;
 	}
 
-	public ArrayList<MasajistaDTO> getList() {
-		return lista;
-	}
 
 }

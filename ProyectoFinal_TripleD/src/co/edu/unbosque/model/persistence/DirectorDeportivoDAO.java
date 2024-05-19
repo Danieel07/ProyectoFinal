@@ -49,7 +49,13 @@ public class DirectorDeportivoDAO implements CRUDOperation {
 			contenido += lista.get(i).getIdentificador() + ";";
 			contenido += lista.get(i).getAniosExp() + ";";
 			contenido += lista.get(i).getNacionalidad() + ";";
-			contenido += lista.get(i).getLista();
+			contenido += lista.get(i).getNombreEscuadra()+ ";";
+			
+			contenido += lista.get(i).getUsuario()+ ";";
+			contenido += lista.get(i).getClave()+ ";";
+			contenido += lista.get(i).getCorreo()+ ";";
+			contenido += lista.get(i).getTipoDeUsuario()+ ";";
+			contenido += lista.get(i).getId();
 
 			if (i < lista.size() - 1) {
 				contenido += "\n";
@@ -79,14 +85,12 @@ public class DirectorDeportivoDAO implements CRUDOperation {
 			temp.setIdentificador(Long.parseLong(columnas[1]));
 			temp.setAniosExp(Integer.parseInt(columnas[2]));
 			temp.setNacionalidad(columnas[3]);
-			String[] ciclistas = columnas[4].split(",");
-			ArrayList<CiclistaDTO> listaCiclistas = new ArrayList<>();
-			for (String ciclistaIdStr : ciclistas) {
-				CiclistaDTO ciclista = new CiclistaDTO();
-				ciclista.setIdentificador(Long.parseLong(ciclistaIdStr));
-				listaCiclistas.add(ciclista);
-			}
-			temp.setLista(listaCiclistas);
+			temp.setNombreEscuadra(columnas[4]);
+			temp.setUsuario(columnas[5]);
+			temp.setClave(columnas[6]);
+			temp.setCorreo(columnas[7]);
+			temp.setTipoDeUsuario(columnas[8]);
+			temp.setId(Integer.parseInt(columnas[9]));
 
 			lista.add(temp);
 
@@ -138,11 +142,14 @@ public class DirectorDeportivoDAO implements CRUDOperation {
 		if (index < 0 || index >= lista.size()) {
 			return false;
 		} else {
-			CiclistaDTO info = (CiclistaDTO) o;
+			DirectorDeportivoDTO info = (DirectorDeportivoDTO) o;
 			lista.get(index).setNombre(info.getNombre());
 			lista.get(index).setIdentificador(info.getIdentificador());
 			lista.get(index).setAniosExp(info.getAniosExp());
 			lista.get(index).setNacionalidad(info.getNacionalidad());
+			lista.get(index).setNombreEscuadra(info.getNombreEscuadra());
+			lista.get(index).setNombre(info.getNombre());
+			lista.get(index).setClave(info.getClave());
 
 		}
 		FileHandler.abrirYEscribirSerializado("CiclistaSerializado.ddd", lista);
@@ -164,5 +171,9 @@ public class DirectorDeportivoDAO implements CRUDOperation {
 
 		return exit;
 	}
-
+	
+	public ArrayList<DirectorDeportivoDTO>getList()
+	{
+		return lista;
+	}
 }

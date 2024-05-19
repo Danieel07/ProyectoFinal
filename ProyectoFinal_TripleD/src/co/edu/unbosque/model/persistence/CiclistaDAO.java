@@ -53,7 +53,12 @@ public class CiclistaDAO implements CRUDOperation {
 			contenido += lista.get(i).getAtributoExtra1() + ";" ;
 			contenido += lista.get(i).getAtributoExtra2() + ";" ;
 			contenido += lista.get(i).getAtributoExtra3() + ";";
-			contenido += lista.get(i).getLlenoLosDatos();
+			contenido += lista.get(i).getLlenoLosDatos() + ";";
+			
+			contenido += lista.get(i).getUsuario() + ";";
+			contenido += lista.get(i).getClave() + ";";
+			contenido += lista.get(i).getCorreo() + ";";
+			contenido += lista.get(i).getTipoDeUsuario();
 
 			if (i < lista.size() - 1) {
 				contenido += "\n";
@@ -92,6 +97,10 @@ public class CiclistaDAO implements CRUDOperation {
 			temp.setAtributoExtra2(columnas[10]);
 			temp.setAtributoExtra3(columnas[11]);
 			temp.setLlenoLosDatos(Integer.parseInt(columnas[12]));
+			temp.setUsuario(columnas[13]);
+			temp.setClave(columnas[14]);
+			temp.setCorreo(columnas[15]);
+			temp.setTipoDeUsuario(columnas[16]);
 			lista.add(temp);
 
 		}

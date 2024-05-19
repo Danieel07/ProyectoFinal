@@ -11,86 +11,102 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+
+import co.edu.unbosque.model.CiclistaDTO;
+import co.edu.unbosque.model.persistence.ModelFacade;
+import javax.swing.ListSelectionModel;
 
 public class CrearEscuadraView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JLabel lblExtra;
-	private JLabel lblExtra_1;
-	private JLabel lblExtra_2;
-	private JButton btnNewButton;
-	private JButton btnActualizar;
-	private JButton btnEliminar;
+	public JTextField txtNombre;
+	public JTextField txtCedula;
+	public JTextField txtAniosExperiencia;
+	public JTextField txtNacionalidad;
+	public JTextField txtTipoCiclista;
+	public JTextField txtEspecialidad;
+	public JTextField txtContextura;
+	public JTextField txtCadenciaPedaleo;
+	
+	
+	public JTextField txtAtributoExtra1;
+	public JTextField txtAtributoExtra2;
+	public JTextField txtAtributoExtra3;
+	
+	
+	public JLabel lblAtributoExtra1;
+	public JLabel lblAtributoExtra2;
+	public JLabel lblAtributoExtra3;
+	
+	
+	public JButton btnAgregar;
+	public JButton btnEliminar;
+	public JTable tablaEscuadra;
+	public JButton btnRegresarPanelPrincipal;
+	public JTable tableCiclistas;
+	private DefaultTableModel model;
+	private ModelFacade modelFacade;
+	public JButton btnSelecionar;
+	public JButton btnCrear;
+	public JTextField txtTiempoAcumulado;
+	private DefaultTableModel modelTablaEscuadra;
 
 	/**
 	 * Create the frame.
 	 */
 	public CrearEscuadraView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 843, 510);
+		setBounds(100, 100, 1019, 566);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		table = new JTable();
-		table.setBounds(10, 11, 614, 269);
-		contentPane.add(table);
-		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNombre.setBounds(10, 298, 118, 14);
 		contentPane.add(lblNombre);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(10, 320, 165, 20);
-		contentPane.add(textField);
+		txtNombre = new JTextField();
+		txtNombre.setColumns(10);
+		txtNombre.setBounds(10, 320, 165, 20);
+		contentPane.add(txtNombre);
 		
 		JLabel lblCedula = new JLabel("Cedula:");
 		lblCedula.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCedula.setBounds(10, 351, 118, 14);
 		contentPane.add(lblCedula);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(10, 376, 165, 20);
-		contentPane.add(textField_1);
+		txtCedula = new JTextField();
+		txtCedula.setColumns(10);
+		txtCedula.setBounds(10, 376, 165, 20);
+		contentPane.add(txtCedula);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(10, 440, 165, 20);
-		contentPane.add(textField_2);
+		txtAniosExperiencia = new JTextField();
+		txtAniosExperiencia.setColumns(10);
+		txtAniosExperiencia.setBounds(10, 440, 165, 20);
+		contentPane.add(txtAniosExperiencia);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(253, 320, 165, 20);
-		contentPane.add(textField_3);
+		txtNacionalidad = new JTextField();
+		txtNacionalidad.setColumns(10);
+		txtNacionalidad.setBounds(253, 320, 165, 20);
+		contentPane.add(txtNacionalidad);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(253, 376, 165, 20);
-		contentPane.add(textField_4);
+		txtTipoCiclista = new JTextField();
+		txtTipoCiclista.setColumns(10);
+		txtTipoCiclista.setBounds(253, 376, 165, 20);
+		contentPane.add(txtTipoCiclista);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(253, 440, 165, 20);
-		contentPane.add(textField_5);
+		txtEspecialidad = new JTextField();
+		txtEspecialidad.setColumns(10);
+		txtEspecialidad.setBounds(253, 440, 165, 20);
+		contentPane.add(txtEspecialidad);
 		
 		JLabel lblAosDeExperiencia = new JLabel("Años de Experiencia:");
 		lblAosDeExperiencia.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -112,74 +128,137 @@ public class CrearEscuadraView extends JFrame {
 		lblEspecialidad.setBounds(253, 421, 118, 14);
 		contentPane.add(lblEspecialidad);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(460, 320, 165, 20);
-		contentPane.add(textField_6);
+		txtContextura = new JTextField();
+		txtContextura.setColumns(10);
+		txtContextura.setBounds(460, 320, 165, 20);
+		contentPane.add(txtContextura);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(460, 376, 165, 20);
-		contentPane.add(textField_7);
+		txtCadenciaPedaleo = new JTextField();
+		txtCadenciaPedaleo.setColumns(10);
+		txtCadenciaPedaleo.setBounds(460, 376, 165, 20);
+		contentPane.add(txtCadenciaPedaleo);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(662, 440, 165, 20);
-		contentPane.add(textField_8);
+		txtAtributoExtra3 = new JTextField();
+		txtAtributoExtra3.setColumns(10);
+		txtAtributoExtra3.setBounds(662, 440, 165, 20);
+		contentPane.add(txtAtributoExtra3);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(662, 320, 165, 20);
-		contentPane.add(textField_9);
+		txtAtributoExtra1 = new JTextField();
+		txtAtributoExtra1.setColumns(10);
+		txtAtributoExtra1.setBounds(662, 320, 165, 20);
+		contentPane.add(txtAtributoExtra1);
 		
 		JLabel lblContextura = new JLabel("Contextura:");
 		lblContextura.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblContextura.setBounds(462, 300, 118, 14);
 		contentPane.add(lblContextura);
 		
-		JLabel lblCadenciaDePedaleo_1 = new JLabel("Cadencia de pedaleo:");
-		lblCadenciaDePedaleo_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCadenciaDePedaleo_1.setBounds(460, 353, 175, 14);
-		contentPane.add(lblCadenciaDePedaleo_1);
+		JLabel lblCadenciaDePedaleo = new JLabel("Cadencia de pedaleo:");
+		lblCadenciaDePedaleo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblCadenciaDePedaleo.setBounds(460, 353, 175, 14);
+		contentPane.add(lblCadenciaDePedaleo);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(662, 376, 165, 20);
-		contentPane.add(textField_10);
+		txtAtributoExtra2 = new JTextField();
+		txtAtributoExtra2.setColumns(10);
+		txtAtributoExtra2.setBounds(662, 376, 165, 20);
+		contentPane.add(txtAtributoExtra2);
 		
-		lblExtra = new JLabel("Extra 1:");
-		lblExtra.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblExtra.setBounds(662, 300, 118, 14);
-		contentPane.add(lblExtra);
+		lblAtributoExtra1 = new JLabel("Extra 1:");
+		lblAtributoExtra1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblAtributoExtra1.setBounds(662, 300, 277, 14);
+		contentPane.add(lblAtributoExtra1);
 		
-		lblExtra_1 = new JLabel("Extra 2:");
-		lblExtra_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblExtra_1.setBounds(662, 355, 118, 14);
-		contentPane.add(lblExtra_1);
+		lblAtributoExtra2 = new JLabel("Extra 2:");
+		lblAtributoExtra2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblAtributoExtra2.setBounds(662, 355, 277, 14);
+		contentPane.add(lblAtributoExtra2);
 		
-		lblExtra_2 = new JLabel("Extra 3:");
-		lblExtra_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblExtra_2.setBounds(662, 421, 118, 14);
-		contentPane.add(lblExtra_2);
+		lblAtributoExtra3 = new JLabel("Extra 3:");
+		lblAtributoExtra3.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblAtributoExtra3.setBounds(662, 421, 301, 14);
+		contentPane.add(lblAtributoExtra3);
 		
-		btnNewButton = new JButton("Agregar");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(662, 85, 99, 32);
-		contentPane.add(btnNewButton);
-		
-		btnActualizar = new JButton("Actualizar");
-		btnActualizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnActualizar.setBounds(662, 128, 99, 28);
-		contentPane.add(btnActualizar);
+		btnAgregar = new JButton("Agregar");
+		btnAgregar.setBounds(436, 54, 99, 32);
+		contentPane.add(btnAgregar);
 		
 		btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(662, 167, 99, 28);
+		btnEliminar.setBounds(436, 97, 99, 28);
 		contentPane.add(btnEliminar);
+		
+		btnRegresarPanelPrincipal = new JButton("Regresar");
+		btnRegresarPanelPrincipal.setBounds(436, 248, 99, 32);
+		contentPane.add(btnRegresarPanelPrincipal);
+		
+		tablaEscuadra = new JTable();
+		tablaEscuadra.setBounds(558, 11, 427, 269);
+		modelTablaEscuadra = new DefaultTableModel();
+		tablaEscuadra.setModel(modelTablaEscuadra);
+		modelTablaEscuadra.addColumn("Nombre");
+		modelTablaEscuadra.addColumn("Cedula");
+		modelTablaEscuadra.addColumn("Años De Experiencia");
+		modelTablaEscuadra.addColumn("Tipo De Ciclista");
+		modelTablaEscuadra.addColumn("Nacionalidad");
+		modelTablaEscuadra.addColumn("Contextura");
+		modelTablaEscuadra.addColumn("Tiempo Acumulado");
+		modelTablaEscuadra.addColumn("Especialidad");
+		
+		contentPane.add(tablaEscuadra);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 22, 408, 258);
+		contentPane.add(scrollPane);
+		
+		tableCiclistas = new JTable();
+		tableCiclistas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		model = new DefaultTableModel();
+		tableCiclistas.setModel(model);
+		model.addColumn("Nombre");
+		model.addColumn("Cedula");
+		model.addColumn("Años De Experiencia");
+		model.addColumn("Tipo De Ciclista");
+		model.addColumn("Nacionalidad");
+		model.addColumn("Contextura");
+		model.addColumn("Tiempo Acumulado");
+		model.addColumn("Especialidad");
+		llenarTabla();
+		
+		scrollPane.setViewportView(tableCiclistas);
+		
+		btnSelecionar = new JButton("Seleccionar");
+		btnSelecionar.setBounds(436, 136, 99, 32);
+		contentPane.add(btnSelecionar);
+		
+		btnCrear = new JButton("Crear");
+		btnCrear.setBounds(436, 178, 99, 32);
+		contentPane.add(btnCrear);
+		
+		JLabel lblTiempoAcumulado = new JLabel("Tiempo Acumulado");
+		lblTiempoAcumulado.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTiempoAcumulado.setBounds(460, 417, 175, 14);
+		contentPane.add(lblTiempoAcumulado);
+		
+		txtTiempoAcumulado = new JTextField();
+		txtTiempoAcumulado.setColumns(10);
+		txtTiempoAcumulado.setBounds(460, 440, 165, 20);
+		contentPane.add(txtTiempoAcumulado);
+	}
+	
+	private void llenarTabla() {
+		modelFacade =  new ModelFacade();
+		ArrayList<CiclistaDTO> lista = modelFacade.getcDAO().getLista();
+		for (CiclistaDTO ciclista : lista) {
+			Object[] fila = new Object[8];
+			fila[0] = ciclista.getNombre();
+			fila[1] = ciclista.getIdentificador();
+			fila[2] = ciclista.getAniosExp();
+			fila[3] = ciclista.getTipoCiclista();
+			fila[4] = ciclista.getNacionalidad();
+			fila[5] = ciclista.getContextura();
+			fila[6] = ciclista.getTiempoAcumulado();
+			fila[7] = ciclista.getEspecialidad();
+			model.addRow(fila);
+		}
+	
 	}
 }
